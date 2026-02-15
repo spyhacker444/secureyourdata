@@ -793,6 +793,57 @@ function clearDecrypt() {
 }
 
 // ===========================
+// Copy Functions
+// ===========================
+function copyEncryptedText() {
+    const encryptedText = document.getElementById('encryptedOutput').textContent;
+    
+    if (!encryptedText) {
+        showToast('No text to copy!', 'error');
+        return;
+    }
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(encryptedText).then(() => {
+        showToast('Encrypted text copied to clipboard! ✓', 'success');
+        
+        // Visual feedback
+        const btn = event.target.closest('.btn-copy');
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        console.error('Copy failed:', err);
+        showToast('Failed to copy text', 'error');
+    });
+}
+
+function copyDecryptedText() {
+    const decryptedText = document.getElementById('decryptedOutput').textContent;
+    
+    if (!decryptedText) {
+        showToast('No text to copy!', 'error');
+        return;
+    }
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(decryptedText).then(() => {
+        showToast('Decrypted text copied to clipboard! ✓', 'success');
+        
+        // Visual feedback
+        const btn = event.target.closest('.btn-copy');
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        console.error('Copy failed:', err);
+        showToast('Failed to copy text', 'error');
+    });
+}
+
+// ===========================
 // Password Toggle
 // ===========================
 function togglePassword(inputId) {

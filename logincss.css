@@ -105,41 +105,42 @@ body {
 
 .logo {
     font-family: var(--font-display);
-    font-size: 1.75rem;
+    font-size: clamp(1.25rem, 2.5vw + 0.5rem, 1.75rem);
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1rem, 3vh, 2rem);
 }
 
 .branding-content h1 {
     font-family: var(--font-display);
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 3vw + 0.75rem, 2.75rem);
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.75rem, 2vh, 1rem);
 }
 
 .branding-content > p {
-    font-size: 1.125rem;
-    margin-bottom: 3rem;
+    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.25rem);
+    margin-bottom: clamp(2rem, 4vh, 3rem);
     opacity: 0.95;
+    line-height: 1.6;
 }
 
 .features-list {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: clamp(1rem, 2vh, 1.5rem);
 }
 
 .feature-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    font-size: 1rem;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    font-size: clamp(0.9375rem, 1.5vw + 0.25rem, 1.0625rem);
 }
 
 .feature-item svg {
-    width: 24px;
-    height: 24px;
+    width: clamp(20px, 3vw, 24px);
+    height: clamp(20px, 3vw, 24px);
     flex-shrink: 0;
 }
 
@@ -148,7 +149,7 @@ body {
    =========================== */
 .form-section {
     background: var(--color-surface);
-    padding: 3rem;
+    padding: clamp(2rem, 4vw, 3rem);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,26 +158,26 @@ body {
 
 .form-container {
     width: 100%;
-    max-width: 450px;
+    max-width: min(450px, 95%);
     animation: fadeInRight 0.8s ease-out;
 }
 
 .form-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1.5rem, 3vh, 2rem);
 }
 
 .form-header h2 {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2rem);
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 0.5rem;
+    margin-bottom: clamp(0.375rem, 1vh, 0.5rem);
 }
 
 .form-header p {
     color: var(--color-text-secondary);
-    font-size: 0.9375rem;
+    font-size: clamp(0.875rem, 1.5vw + 0.25rem, 0.9375rem);
 }
 
 /* ===========================
@@ -340,30 +341,48 @@ body {
 
 /* Checkbox */
 .checkbox-group {
-    margin-top: 0.5rem;
+    margin-top: clamp(0.5rem, 1vh, 0.75rem);
 }
 
 .checkbox-label {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: clamp(0.625rem, 1.5vw, 0.875rem);
     cursor: pointer;
-    font-size: 0.875rem;
+    font-size: clamp(0.8125rem, 1.5vw + 0.125rem, 0.9375rem);
     color: var(--color-text-secondary);
+    line-height: 1.6;
+    padding: clamp(0.5rem, 1vh, 0.75rem);
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.checkbox-label:hover {
+    background: rgba(37, 99, 235, 0.05);
 }
 
 .checkbox-label input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+    width: clamp(18px, 2.5vw, 20px);
+    height: clamp(18px, 2.5vw, 20px);
+    min-width: 18px;
+    min-height: 18px;
     margin-top: 2px;
     cursor: pointer;
     accent-color: var(--color-primary);
+    flex-shrink: 0;
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .checkbox-label a {
     color: var(--color-primary);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .checkbox-label a:hover {
